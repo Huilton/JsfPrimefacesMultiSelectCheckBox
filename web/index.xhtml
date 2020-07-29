@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="frm">
+            <p:dataTable id="dtTabela" var="carro" value="#{carroBean.listaCarro}">
+                <p:column headerText="Id Carro" id="idCarro">
+                    <h:outputLabel value="#{carro.id}"/>
+                </p:column>
+                <p:column headerText="Cor Carro" id="corCarro">
+                    <h:outputLabel value="#{carro.cor}"/>
+                </p:column>
+                <p:column headerText="Confirma" id="idConfirma">
+                    <p:selectBooleanCheckbox id="sbcConfirma" value="#{carro.checkConfirma}">
+                        <p:ajax listener="#{carroBean.slcConfirmaClick(carro)}"/>
+                    </p:selectBooleanCheckbox>
+                </p:column>
+                <p:column headerText="Devolver" id="idDevolver">
+                    <p:selectBooleanCheckbox id="sbcDevolver" value="#{carro.checkDevolver}">
+                        <p:ajax listener="#{carroBean.slcDevolverClick(carro)}"/>
+                    </p:selectBooleanCheckbox>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
